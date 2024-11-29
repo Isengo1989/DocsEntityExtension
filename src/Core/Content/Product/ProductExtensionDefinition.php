@@ -35,7 +35,6 @@ class ProductExtensionDefinition extends EntityDefinition
             (new IdField('id', 'id'))->addFlags(new Required(), new PrimaryKey()),
             new FkField('product_id', 'productId', ProductDefinition::class),
             (new StringField('custom_string', 'customString')),
-            // ReferenceVersionField only needed on versioned entities
             new ReferenceVersionField(ProductDefinition::class),
             new OneToOneAssociationField('product', 'product_id', 'id', ProductDefinition::class, false)
         ]);

@@ -4,7 +4,7 @@ use Shopware\Core\TestBootstrapper;
 
 $loader = (new TestBootstrapper())
     ->addCallingPlugin()
-    ->addActivePlugins('ShopwareDocsEntityExtension')
+    ->addActivePlugins('DocsEntityExtension')
     ->setForceInstallPlugins(true)
     ->bootstrap()
     ->getClassLoader();
