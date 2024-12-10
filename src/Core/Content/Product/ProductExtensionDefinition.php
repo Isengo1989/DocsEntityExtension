@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace ShopwareDocs\Core\Content\Product;
+namespace Docs\Core\Content\Product;
 
 
 use Shopware\Core\Content\Product\ProductDefinition;
@@ -17,7 +17,7 @@ use Shopware\Core\Framework\DataAbstractionLayer\Field\ReferenceVersionField;
 
 class ProductExtensionDefinition extends EntityDefinition
 {
-    public const ENTITY_NAME = 'shopware_docs_product_extension';
+    public const ENTITY_NAME = 'docs_product_extension';
 
     public function getEntityName(): string
     {

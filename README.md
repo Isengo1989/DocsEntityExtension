@@ -1,11 +1,11 @@
-# ShopwareDocsEntityExtension
+# DocsEntityExtension
 
 This plugin extends the Shopware 6 entity `product`.
 
 ## Installation
 
 ```shell
-bin/console plugin:install ShopwareDocsEntityExtension --activate
+bin/console plugin:install DocsEntityExtension --activate
 ```
 
 ## HTTP test

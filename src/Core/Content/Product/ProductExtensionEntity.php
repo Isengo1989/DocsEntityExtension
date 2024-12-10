@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace ShopwareDocs\Core\Content\Product;
+namespace Docs\Core\Content\Product;
 
 use Shopware\Core\Framework\DataAbstractionLayer\Entity;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityCustomFieldsTrait;

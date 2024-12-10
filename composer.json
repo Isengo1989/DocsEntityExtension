@@ -8,7 +8,7 @@
         "shopware/core": "~6.6.0"
     },
     "extra": {
-        "shopware-plugin-class": "ShopwareDocs\\DocsEntityExtension",
+        "shopware-plugin-class": "Docs\\DocsEntityExtension",
         "label": {
             "de-DE": "Skeleton plugin",
             "en-GB": "Skeleton plugin"
@@ -16,12 +16,12 @@
     },
     "autoload": {
         "psr-4": {
-            "ShopwareDocs\\": "src/"
+            "Docs\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "ShopwareDocs\\Tests\\": "tests/"
+            "Docs\\Tests\\": "tests/"
         }
     }
 }

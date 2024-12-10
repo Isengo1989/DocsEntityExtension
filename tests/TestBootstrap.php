@@ -9,4 +9,4 @@ $loader = (new TestBootstrapper())
     ->bootstrap()
     ->getClassLoader();
 
-$loader->addPsr4('ShopwareDocs\\Tests\\', __DIR__);
+$loader->addPsr4('Docs\\Tests\\', __DIR__);
