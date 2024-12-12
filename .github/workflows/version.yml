@@ -16,7 +16,7 @@ jobs:
       - name: Get all open pull requests
         run: |
           open_prs=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-            "https://api.github.com/repos/${{ github.repository }}/pulls?state=open" | jq -r '.[].number')
+            "https://api.github.com/repos/${{ github.repository }}/pulls?state=open" | jq -r '.[].number' | tr '\n' ' ')
           echo "open_prs=$open_prs" >> $GITHUB_ENV
 
       - name: Process each pull request
