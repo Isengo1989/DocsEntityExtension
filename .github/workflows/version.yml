@@ -2,7 +2,7 @@ name: Check docs milestone and shopware version
 
 on:
   schedule:
-    - cron: '05 11 * * *'
+    - cron: '12 11 * * *'
 
 jobs:
   check-milestone-and-version:
