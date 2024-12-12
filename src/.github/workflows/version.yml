@@ -1,0 +1,36 @@
+name: Check Milestone and Version
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  check-milestone-and-version:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Get milestone from pull request
+      run: |
+        pr_number=$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
+        milestone=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+          "https://api.github.com/repos/${{ github.repository }}/issues/$pr_number" | jq -r .milestone.title)
+        echo "Milestone: $milestone"
+        echo "milestone=$milestone" >> $GITHUB_ENV
+
+    - name: Get latest version from external repository
+      run: |
+        latest_version=$(curl -s https://api.github.com/repos/shopware/shopware/releases/latest | jq -r .tag_name)
+        echo "Latest version: $latest_version"
+        echo "latest_version=$latest_version" >> $GITHUB_ENV
+
+    - name: Check milestone and version, then comment
+      if: env.milestone == env.latest_version
+      run: |
+        pr_number=$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
+        curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+          -X POST \
+          -d "{\"body\": \"The feature is ready to be merged.\"}" \
+          "https://api.github.com/repos/${{ github.repository }}/issues/$pr_number/comments"
