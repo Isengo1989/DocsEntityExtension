@@ -1,4 +1,4 @@
-# DocsEntityExtension plugin
+# DocsEntityExtension test
 
 This plugin extends the Shopware 6 entity `product`.
 
