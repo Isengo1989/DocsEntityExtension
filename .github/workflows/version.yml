@@ -30,7 +30,7 @@ jobs:
       if: env.milestone == env.latest_version
       run: |
         pr_number=$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
-        curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+        curl -s -H "Authorization: token ${{ secrets.REPO_SCOPE_TOKEN }}" \
           -X POST \
           -d "{\"body\": \"The feature is ready to be merged.\"}" \
           "https://api.github.com/repos/${{ github.repository }}/pulls/$pr_number/comments"
