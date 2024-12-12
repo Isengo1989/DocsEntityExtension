@@ -35,17 +35,17 @@ jobs:
                   "https://api.github.com/repos/${{ github.repository }}/issues/$pr_number/comments"
               fi
               # Remove blocked label if it exists
-              curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+              curl -s -H "Authorization: token ${{ secrets.REPO_SCOPE_TOKEN }}" \
                 "https://api.github.com/repos/${{ github.repository }}/issues/$pr_number/labels" | jq -r '.[].name' | grep -q "blocked" && \
-                curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+                curl -s -H "Authorization: token ${{ secrets.REPO_SCOPE_TOKEN }}" \
                   -X DELETE \
                   "https://api.github.com/repos/${{ github.repository }}/issues/$pr_number/labels/blocked"
             else
               if [ "$milestone" != "null" ]; then
                 # Add blocked label if it does not exist
-                curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+                curl -s -H "Authorization: token ${{ secrets.REPO_SCOPE_TOKEN }}" \
                   "https://api.github.com/repos/${{ github.repository }}/issues/$pr_number/labels" | jq -r '.[].name' | grep -q "blocked" || \
-                  curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+                  curl -s -H "Authorization: token ${{ secrets.REPO_SCOPE_TOKEN }}" \
                     -X POST \
                     -d "{\"labels\": [\"blocked\"]}" \
                     "https://api.github.com/repos/${{ github.repository }}/issues/$pr_number/labels"
