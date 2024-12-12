@@ -32,5 +32,5 @@ jobs:
         pr_number=$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
         curl -s -H "Authorization: token ${{ secrets.REPO_SCOPE_TOKEN }}" \
           -X POST \
-          -d "{\"body\": \"The feature is ready to be merged.\"}" \
+          -d "{\"body\": \"The feature is ready to be merged @Isengo1989\"}" \
           "https://api.github.com/repos/${{ github.repository }}/issues/$pr_number/comments"
