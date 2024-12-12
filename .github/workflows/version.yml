@@ -3,6 +3,7 @@ name: Check docs milestone and shopware version
 on:
   schedule:
     - cron: '14 10 * * *'
+  workflow_dispatch:
 
 jobs:
   check-milestone-and-version:
